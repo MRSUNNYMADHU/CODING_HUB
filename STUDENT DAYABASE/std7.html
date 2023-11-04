@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      main {
+        display: flex;
+        flex-direction: column;
+        background: linear-gradient(
+          66deg,
+          rgba(250, 249, 249, 0.5),
+          rgba(144, 205, 245, 0.4),
+          rgba(246, 201, 235, 0.5),
+          rgba(172, 241, 217, 0.6)
+        );
+        z-index: -99;
+        width: 100%;
+        min-height: 100vh;
+      }
+      .container .head {
+        display: flex;
+        height: 80px;
+        align-items: center;
+        width: 100%;
+        justify-content: center;
+        position: static;
+        z-index: 9999;
+        background: linear-gradient(
+          66deg,
+          rgba(0, 0, 0, 0.7),
+          rgba(0, 0, 0, 0.9),
+          rgba(0, 0, 0, 0.7)
+        );
+      }
+      .head h1 {
+        font-size: 40px;
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        font-weight: 1000;
+        color: #fff;
+        text-transform: uppercase;
+      }
+      .about {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        position: relative;
+      }
+      .student-info {
+        position: relative;
+        margin: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 250px;
+        height: 260px;
+        border-radius: 10px;
+        border: 2px solid #000;
+      }
+      .student-info input {
+        display: none;
+        opacity: 0.3;
+        width: 90px;
+      }
+      img {
+        position: relative;
+        top: -10px;
+        border-radius: 50%;
+        border: 1px solid #000;
+      }
+      .student-details {
+        display: flex;
+        margin-top: 40px;
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        gap: 20px;
+        line-height: 45px;
+        text-align: start;
+      }
+      .student-details .title {
+        font-size: 30px;
+        text-transform: uppercase;
+        text-align: center;
+      }
+      .student-details h3 {
+        font-size: 25px;
+        text-transform: capitalize;
+        font-weight: 600;
+        font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+          "Lucida Sans", Arial, sans-serif;
+      }
+      .student-details span {
+        font-size: 30px;
+        font-family: "Times New Roman", Times, serif;
+        color: blue;
+      }
+      .sem-title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px 0 30px 0;
+        text-transform: uppercase;
+        text-align: center;
+        text-decoration: underline;
+      }
+      .marks-list {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+      }
+        .updates {
+        height: 200px;
+        width: 100%;
+        padding: 10px 30px 40px 30px;
+        border: 2px solid #000;
+      }
+      .mar{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid #000;
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-weight: 700;
+      }
+      td {
+        padding: 10px;
+      }
+      table {
+        width: 330px;
+        height: 430px;
+        align-items: center;
+        justify-content: center;
+      }
+      .cards {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 400px;
+        height: 500px;
+        color: #000;
+        background: rgb(249, 248, 248);
+        overflow: hidden;
+        z-index: -5;
+      }
+        .card-title th{
+        font-size: 25px;
+        text-transform: uppercase;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 900;
+      }
+      .cards::before {
+        position: absolute;
+        content: "";
+        width: 180px;
+        height: 900px;
+        z-index: -2;
+        background: linear-gradient(red, green, blue, pink, red, green);
+        animation: rotate 6s linear infinite;
+        
+      }
+      .cards::after {
+        position: absolute;
+        content: "";
+        width: 396px;
+        height: 497px;
+        z-index: -1;
+        background: rgb(226, 226, 226);
+      }
+      @keyframes rotate {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      @media screen and (max-width: 750px) {
+        .about {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrapper">
+      <section class="container">
+        <header class="head">
+          <label>
+            <h1>student data</h1>
+          </label>
+        </header>
+        <div class="about">
+          <div class="student-details">
+            <label class="title">
+              <h2>student info</h2>
+            </label>
+            <div>
+              <h3>first name : <span>gopiRAO</span></h3>
+            </div>
+            <div>
+              <h3>last name : <span>GAJALLA</span></h3>
+            </div>
+            <div>
+              <h3>college : <span>UCET</span></h3>
+            </div>
+            <div>
+              <h3>roll-no : <span>507</span></h3>
+            </div>
+            <div>
+              <h3>section : <span>III cse-A</span></h3>
+            </div>
+            <div>
+              <h3>current sem : <span>III-I</span></h3>
+            </div>
+          </div>
+          <div class="student-info">
+            <img src="./zoomlogo.jpg" width="200" height="200" alt="org" />
+            <input class="input" id="image" />
+          </div>
+        </div>
+        <hr style="border: 3px solid black; margin: 4rem 0 1rem 0" />
+        <div class="updates">
+          <div>
+            <h2 class="sem-title" style="padding: 0 0 20px 0">updates</h2>
+          </div>
+          <div class="mar">
+            <marquee direction="left" style="color: green;font-size: 20px;font-weight: 400;"
+              >you will get all your updates here</marquee
+            <p>
+              📢 JNTUK 1-1 supply Revaluation correction in progress <br/>
+              📣 JNTUK 1-2 reg/supply Revaluation correction ongoing <br>
+              📝 JNTUK 2-1 supply Revaluation marks entering underway <br>
+              📚 JNTUK 2-2 reg/supply Revaluation correction in process <br>
+              🔍 JNTUK 3-1 supply Revaluation results coming soon <br>
+          </div>
+        </div>
+        <h2 class="sem-title">your sem marks will be displayed below</h2>
+        <div class="marks-list">
+          <div class="cards">
+            <span class="card"></span>
+            <table>
+              <thead class="card-title">
+                <tr>
+                  <th colspan="2">sem : I-I</th>
+                </tr>
+              </thead>
+              <tbody class="marks">
+                <tr>
+                  <td>subject</td>
+                  <td>marks</td>
+                </tr>
+                <tr>
+                  <td>subject one</td>
+                  <td>50</td>
+                </tr>
+                <tr>
+                  <td>subject two</td>
+                  <td>50</td>
+                </tr>
+                <tr>
+                  <td>subject three</td>
+                  <td>50</td>
+                </tr>
+                <tr>
+                  <td>subject four</td>
+                  <td>50</td>
+                </tr>
+                <tr>
+                  <td>subject five</td>
+                  <td>50</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+           <div class="cards">
+            <table>
+              <thead class="card-title">
+                <tr>
+                  <th colspan="2">sem : I-II</th>
+                </tr>
+              </thead>
+              <tbody class="marks">
+                <tr>
+                  <td>subject</td>
+                  <td>marks</td>
+                </tr>
+                <tr>
+                  <td>subject one</td>
+                  <td>50</td>
+                </tr>
+                <tr>
+                  <td>subject two</td>
+                  <td>50</td>
+                </tr>
+                <tr>
+                  <td>subject three</td>
+                  <td>50</td>
+                </tr>
+                <tr>
+                  <td>subject four</td>
+                  <td>50</td>
+                </tr>
+                <tr>
+                  <td>subject five</td>
+                  <td>50</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="cards">
+            <table>
+              <thead class="card-title">
+                <tr>
+                  <th colspan="2">sem:II-I</th>
+                </tr>
+              </thead>
+              <tbody class="marks">
+                <tr>
+                  <td>subject</td>
+                  <td>marks</td>
+                </tr>
+                <tr>
+                  <td>subject one</td>
+                  <td>50</td>
+                </tr>
+                <tr>
+                  <td>subject two</td>
+                  <td>50</td>
+                </tr>
+                <tr>
+                  <td>subject three</td>
+                  <td>50</td>
+                </tr>
+                <tr>
+                  <td>subject four</td>
+                  <td>50</td>
+                </tr>
+                <tr>
+                  <td>subject five</td>
+                  <td>50</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="cards">
+            <table>
+              <thead class="card-title">
+                <tr>
+                  <th colspan="2">sem : II-II</th>
+                </tr>
+              </thead>
+              <tbody class="marks">
+                <tr>
+                  <td>subject</td>
+                  <td>marks</td>
+                </tr>
+                <tr>
+                  <td>subject one</td>
+                  <td>50</td>
+                </tr>
+                <tr>
+                  <td>subject two</td>
+                  <td>50</td>
+                </tr>
+                <tr>
+                  <td>subject three</td>
+                  <td>50</td>
+                </tr>
+                <tr>
+                  <td>subject four</td>
+                  <td>50</td>
+                </tr>
+                <tr>
+                  <td>subject five</td>
+                  <td>50</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="cards">
+            <table>
+              <thead class="card-title">
+                <tr>
+                  <th colspan="2">sem : III-I</th>
+                </tr>
+              </thead>
+              <tbody class="marks">
+                <tr>
+                  <td>subject</td>
+                  <td>marks</td>
+                </tr>
+                <tr>
+                  <td>subject one</td>
+                  <td> - </td>
+                </tr>
+                <tr>
+                  <td>subject two</td>
+                  <td> - </td>
+                </tr>
+                <tr>
+                  <td>subject three</td>
+                  <td> - </td>
+                </tr>
+                <tr>
+                  <td>subject four</td>
+                  <td> - </td>
+                </tr>
+                <tr>
+                  <td>subject five</td>
+                  <td> - </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="cards">
+            <table>
+              <thead class="card-title">
+                <tr>
+                  <th colspan="2">sem : III-II</th>
+                </tr>
+              </thead>
+              <tbody class="marks">
+                <tr>
+                  <td>subject</td>
+                  <td>marks</td>
+                </tr>
+                <tr>
+                  <td>subject one</td>
+                  <td> - </td>
+                </tr>
+                <tr>
+                  <td>subject two</td>
+                  <td> - </td>
+                </tr>
+                <tr>
+                  <td>subject three</td>
+                  <td> - </td>
+                </tr>
+                <tr>
+                  <td>subject four</td>
+                  <td> - </td>
+                </tr>
+                <tr>
+                  <td>subject five</td>
+                  <td> - </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="cards">
+            <table>
+              <thead class="card-title">
+                <tr>
+                  <th colspan="2">sem : IV-I</th>
+                </tr>
+              </thead>
+              <tbody class="marks">
+                <tr>
+                  <td>subject</td>
+                  <td>marks</td>
+                </tr>
+                <tr>
+                  <td>subject one</td>
+                  <td> - </td>
+                </tr>
+                <tr>
+                  <td>subject two</td>
+                  <td> - </td>
+                </tr>
+                <tr>
+                  <td>subject three</td>
+                  <td> - </td>
+                </tr>
+                <tr>
+                  <td>subject four</td>
+                  <td> - </td>
+                </tr>
+                <tr>
+                  <td>subject five</td>
+                  <td> - </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="cards">
+            <table>
+              <thead class="card-title">
+                <tr>
+                  <th colspan="2">sem : IV-II</th>
+                </tr>
+              </thead>
+              <tbody class="marks">
+                <tr>
+                  <td>subject</td>
+                  <td>marks</td>
+                </tr>
+                <tr>
+                  <td>subject one</td>
+                  <td> - </td>
+                </tr>
+                <tr>
+                  <td>subject two</td>
+                  <td> - </td>
+                </tr>
+                <tr>
+                  <td>minor project</td>
+                  <td> - </td>
+                </tr>
+                <tr>
+                  <td>major project</td>
+                  <td> - </td>
+                </tr>
+                <tr>
+                  <td>grade</td>
+                  <td> - </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+      </section>
+    </main>
+  </body>
+</html>
