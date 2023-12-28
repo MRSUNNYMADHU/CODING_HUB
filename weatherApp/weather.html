@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEATHER APP</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <style>
+    @import url('https://fonts.gstatic.com/s/poppins/v20/pxiEyp8kv8JHgFVrJJbecmNE.woff2');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(rgba(9, 4, 4, 0.671), rgba(12, 6, 6, 0.82)), url('./weather.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+}
+
+.header {
+    width: 100%;
+    height: 100px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    background: transparent;
+    backdrop-filter: blur(50px);
+}
+
+
+.header img {
+    position: relative;
+    top: 5px;
+    left: 20px;
+    margin-right: 10px;
+    display: inline;
+    border-radius: 50%;
+    box-shadow: inset;
+    box-shadow: 5px 1px 2px rgba(97, 76, 76, 0.9),
+        inset 1px 2px 1px rgba(36, 147, 158, 0.6),
+        inset 1px 2px 1px rgba(30, 82, 82, 0.6),
+        inset -8px 2px 2px rgba(14, 10, 10, 0.6);
+}
+
+.header h1 {
+    font-weight: 1200;
+    color: rgba(19, 235, 199, 0.9);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    position: relative;
+    display: flex;
+    text-align: center;
+    text-shadow: 5px 5px 2px rgb(22, 59, 47);
+
+}
+
+.header div {
+    position: absolute;
+    right: 10%;
+}
+
+#input {
+    width: 300px;
+    height: 40px;
+    font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background: #534a4a;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    padding: 0px 35px 0px 20px;
+}
+
+.header #search {
+    position: absolute;
+    right: 10px;
+    background: transparent;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    bottom: 0;
+    height: 30px;
+    width: 30px;
+    font-size: 20px;
+}
+
+.weather h2 {
+    font-size: 40px;
+    text-shadow: 2px 1px 1px rgb(174, 144, 144);
+    font-weight: 400px;
+}
+
+.weather {
+    text-align: center;
+    color: rgb(229, 236, 239);
+}
+
+#city {
+    font-size: 30px;
+}
+
+main {
+    background: transparent;
+    backdrop-filter: blur(10px);
+}
+
+.weather .temp-box img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: rgba(240, 248, 255, 0.408);
+}
+
+#temperature {
+    font-size: 50px;
+    margin: 0;
+    margin-left: 30px;
+    margin-bottom: 10px;
+}
+
+.temp-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0;
+}
+
+#clouds {
+    font-size: 20px;
+    background: rgba(57, 66, 27, 0.778);
+    padding: 10px 20px;
+    border-radius: 15px;
+}
+
+main {
+    display: grid;
+    grid-column-gap: 25px;
+    grid-template-columns: 1fr 5px 1fr;
+    align-items: center;
+    margin: 0 50px;
+    color: white;
+}
+
+.next {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.next p,
+.next h3 {
+    margin: 3px 0;
+}
+
+.forecstD {
+    margin: 0px 20px;
+    color: aliceblue;
+}
+
+.weekF {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(9, 1fr);
+    position: absolute;
+
+}
+
+.dayF {
+    background: transparent;
+    height: auto;
+    width: auto;
+    padding: 5px;
+    backdrop-filter: blur(90px);
+    border-radius: 10px;
+
+}
+
+.cast-header {
+    color: aliceblue;
+    background: rgba(252, 227, 4, 0.539);
+    font-size: 25px;
+    color: #000;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    width: max-content;
+    padding: 10px 15px;
+    border-radius: 25px;
+    margin-bottom: 5px;
+}
+
+.divider1,
+.divider2 {
+    background: rgba(248, 248, 7, 0.539);
+    height: 200px;
+    border-radius: 5px;
+}
+
+.divider2 {
+    height: 5px;
+    width: 40%;
+    margin: 0 auto;
+}
+
+.time {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: aqua;
+}
+
+.next p {
+    font-size: 20px;
+    font-weight: 500;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.date {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: aqua;
+}
+
+.desc {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    color: rgb(90, 176, 20);
+}
+
+footer {
+    position: absolute;
+    right: 2%;
+    top: 90%;
+}
+
+footer,
+footer a {
+    text-decoration: none;
+    color: #fff;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <img src="../weatherApp/favicon.jpg"  width="70" height="70"alt="logo">
+        <h1>WEATHER APP</h1>
+        <div>
+            <input type="text" name="" id="input" placeholder="Enter city name">
+            <button id="search" onclick="searchByCity()"><i class='bx bx-search'></i></button></input>
+        </div>
+    </div>
+
+    <main>        
+        <div class="weather">
+            <h2 id="city">DELHI ,in</h2>
+            <div class="temp-box">
+                <img src="/weatherApp/weathericon.png" alt="" id="img">
+                <p id="temperature">26 °C</p>
+            </div>
+            <span id="clouds">Broken Clouds</span>
+        </div>
+        <div class="divider1"></div>
+
+        <div class="forecstH">
+            <p class="cast-header">today highlights</p>
+            <div class="templist">
+
+                <div class="next">
+                    <div>
+                        <p class="time">8:30 PM</p>
+                        <p>29 °C / 29 °C</p>
+                    </div>
+                    <p class="desc">Light Rain</p>
+                </div>
+
+                <div class="next">
+                    <div>
+                        <p class="time">8:30 PM</p>
+                        <p>29 °C / 29 °C</p>
+                    </div>
+                    <p class="desc">Light Rain</p>
+                </div>
+
+                <div class="next">
+                    <div>
+                        <p class="time">8:30 PM</p>
+                        <p>29 °C / 29 °C</p>
+                    </div>
+                    <p class="desc">Light Rain</p>
+                </div>
+
+                <div class="next">
+                    <div>
+                        <p class="time">8:30 PM</p>
+                        <p>29 °C / 29 °C</p>
+                    </div>
+                    <p class="desc">Light Rain</p>
+                </div>
+
+                <div class="next">
+                    <div>
+                        <p class="time">8:30 PM</p>
+                        <p>29 °C / 29 °C</p>
+                    </div>
+                    <p class="desc">Light Rain</p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <div class="forecstD">
+        <div class="divider2"></div>
+        <p class="cast-header"> Next 7 days forecast</p>
+        <div class="weekF">
+
+            <div class="dayF">
+                <p class="date">Sun Jul 03 2022</p>
+                <p>31 °C / 31 °C</p>
+                <p class="desc">Overcast Clouds</p>
+            </div>
+
+            <div class="dayF">
+                <p class="date">Sun Jul 03 2022</p>
+                <p>31 °C / 31 °C</p>
+                <p class="desc">Overcast Clouds</p>
+            </div>
+
+            <div class="dayF">
+                <p class="date">Sun Jul 03 2022</p>
+                <p>31 °C / 31 °C</p>
+                <p class="desc">Overcast Clouds</p>
+            </div>
+
+            <div class="dayF">
+                <p class="date">Sun Jul 03 2022</p>
+                <p>31 °C / 31 °C</p>
+                <p class="desc">Overcast Clouds</p>
+            </div>
+            <div class="dayF">
+                <p class="date">Sun Jul 03 2022</p>
+                <p>31 °C / 31 °C</p>
+                <p class="desc">Overcast Clouds</p>
+            </div>
+            <div class="dayF">
+                <p class="date">Sun Jul 03 2022</p>
+                <p>31 °C / 31 °C</p>
+                <p class="desc">Overcast Clouds</p>
+            </div>
+            <div class="dayF">
+                <p class="date">Sun Jul 03 2022</p>
+                <p>31 °C / 31 °C</p>
+                <p class="desc">Overcast Clouds</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>developed by:<a href="#">
+        MADHU SUDHAN
+        </a><br><p>classroom:<a href="#">WD-08-SP01</a></p>
+   </p>
+
+    </footer>
+    <script>
+        const url = 'https://api.openweathermap.org/data/2.5/weather?q=delhi&appid=e6d66765b9dcab144c5e60d57de8e8cc&units=metric';
+window.addEventListener("load", () => {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+            let lon = position.coords.longitude;
+            let lat = position.coords.latitude;
+            const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&` + `lon=${lon}&appid=${'e6d66765b9dcab144c5e60d57de8e8cc'}`;
+
+            fetch(url).then((res) => {
+                return res.json();
+            }).then((data) => {
+                console.log(data);
+                console.log(new Date().getTime())
+                var dat = new Date(data.dt)
+                console.log(dat.toLocaleString(undefined, 'Asia/Kolkata'))
+                console.log(new Date().getMinutes())
+                weatherReport(data);
+            })
+        })
+    }
+})
+
+
+function searchByCity() {
+    var place = document.querySelector('#input').value;
+    var urlsearch = `https://api.openweathermap.org/data/2.5/weather?q=${place}&` + `appid=${'e6d66765b9dcab144c5e60d57de8e8cc'}`;
+
+    fetch(urlsearch).then((res) => {
+        return res.json();
+    }).then((data) => {
+        console.log(data);
+        weatherReport(data);
+    })
+    document.getElementById('input').value = '';
+}
+
+function weatherReport(data) {
+
+    var urlcast = `https://api.openweathermap.org/data/2.5/forecast?q=${data.name}&` + `appid=${'e6d66765b9dcab144c5e60d57de8e8cc'}`;
+
+    fetch(urlcast).then((res) => {
+        return res.json();
+    }).then((forecast) => {
+        console.log(forecast.city);
+        hourForecast(forecast);
+        dayForecast(forecast)
+
+        console.log(data);
+        document.getElementById('city').innerText = data.name + ', ' + data.sys.country;
+        console.log(data.name, data.sys.country);
+
+        console.log(Math.floor(data.main.temp - 273));
+        document.getElementById('temperature').innerText = Math.floor(data.main.temp - 273) + ' °C';
+
+        document.getElementById('clouds').innerText = data.weather[0].description;
+        console.log(data.weather[0].description)
+
+        let icon1 = data.weather[0].icon;
+        let iconurl = "https://api.openweathermap.org/img/w/" + icon1 + ".png";
+        document.getElementById('img').src = iconurl;
+    })
+
+}
+
+function hourForecast(forecast) {
+    document.querySelector('.templist').innerHTML = ''
+    for (let i = 0; i < 5; i++) {
+
+        var date = new Date(forecast.list[i].dt * 1000)
+        console.log((date.toLocaleTimeString(undefined, 'Asia/Kolkata')).replace(':00', ''))
+
+        let hourR = document.createElement('div');
+        hourR.setAttribute('class', 'next');
+
+        let div = document.createElement('div');
+        let time = document.createElement('p');
+        time.setAttribute('class', 'time')
+        time.innerText = (date.toLocaleTimeString(undefined, 'Asia/Kolkata')).replace(':00', '');
+
+        let temp = document.createElement('p');
+        temp.innerText = Math.floor((forecast.list[i].main.temp_max - 273)) + ' °C' + ' / ' + Math.floor((forecast.list[i].main.temp_min - 273)) + ' °C';
+
+        div.appendChild(time)
+        div.appendChild(temp)
+
+        let desc = document.createElement('p');
+        desc.setAttribute('class', 'desc')
+        desc.innerText = forecast.list[i].weather[0].description;
+
+        hourR.appendChild(div);
+        hourR.appendChild(desc)
+        document.querySelector('.templist').appendChild(hourR);
+    }
+}
+
+function dayForecast(forecast) {
+    document.querySelector('.weekF').innerHTML = ''
+    for (let i = 0; i < forecast.list.length; i += 6) {
+        console.log(forecast.list[i]);
+        let div = document.createElement('div');
+        div.setAttribute('class', 'dayF');
+
+        let day = document.createElement('p');
+        day.setAttribute('class', 'date')
+        day.innerText = new Date(forecast.list[i].dt * 1000).toDateString(undefined, 'Asia/Kolkata');
+        div.appendChild(day);
+
+        let temp = document.createElement('p');
+        temp.innerText = Math.floor((forecast.list[i].main.temp_max - 273)) + ' °C' + ' / ' + Math.floor((forecast.list[i].main.temp_min - 273)) + ' °C';
+        div.appendChild(temp)
+
+        let description = document.createElement('p');
+        description.setAttribute('class', 'desc')
+        description.innerText = forecast.list[i].weather[0].description;
+        div.appendChild(description);
+
+        document.querySelector('.weekF').appendChild(div)
+    }
+} 
+
+    </script>
+</body>
+</html>
