@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+      .cube ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        list-style-type: none;
+        transform-style: preserve-3d;
+        animation: anime 13s linear infinite;
+      }
+      @keyframes anime {
+        0% {
+          transform: rotateX(360deg) rotateY(0deg);
+        }
+        100% {
+          transform: rotateX(0deg) rotateY(360deg);
+        }
+      }
+      .cube ul li {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #000;
+        color: #fff;
+        width: 100px;
+        height: 100px;
+        border: 2px solid black;
+      }
+      #right {
+        transform: translateX(50px) rotateY(90deg);
+      }
+      #left {
+        transform: translateX(-50px) rotateY(90deg);
+      }
+      #front {
+        transform: translateZ(50px);
+      }
+      #back {
+        transform: translateZ(-50px);
+      }
+      #top {
+        transform: rotateX(90deg) translateZ(50px);
+      }
+      #bottom {
+        transform: rotateX(90deg) translateZ(-50px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="cube">
+        <ul>
+          <li id="right">right</li>
+          <li id="left">left</li>
+          <li id="top">top</li>
+          <li id="bottom">bottom</li>
+          <li id="front">front</li>
+          <li id="back">back</li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

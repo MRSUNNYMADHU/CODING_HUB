@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- <link rel="stylesheet" href="../css/icon.css"> -->
+    <title>icons</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+*,
+*::after,
+*::before {
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+}
+
+:root {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 62.5%;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: rgba(96, 94, 94, 0.9);
+}
+
+.wrapper {
+    display: flex;
+    position: relative;
+    gap: 0px;
+}
+
+.wrapper .icons {
+    text-align: center;
+    position: relative;
+}
+
+.wrapper .icons span {
+    position: relative;
+    right: -15px;
+    display: block;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    box-shadow: 6px 6px 30px rgba(0, 0, 0, 0.9);
+}
+
+.wrapper .icons span i {
+    line-height: 60px;
+    font-size: 40px;
+}
+
+.wrapper .icons .tooltip {
+    position: relative;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.9);
+    padding: 10px 10px;
+    border-radius: 25px;
+    transition: all 0.40ms ease-in;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.wrapper .icons:hover .tooltip {
+    top: -70px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.wrapper .facebook:hover span,
+.wrapper .facebook:hover .tooltip {
+    background: rgba(8, 173, 219, 0.9);
+}
+
+.wrapper .instagram:hover span,
+.wrapper .instagram:hover .tooltip {
+    background: rgba(137, 63, 13, 0.9);
+}
+
+.wrapper .whatsapp:hover span,
+.wrapper .whatsapp:hover .tooltip {
+    background: rgba(14, 77, 22, 0.9);
+}
+
+.wrapper .youtube:hover span,
+.wrapper .youtube:hover .tooltip {
+    background: rgba(152, 14, 37, 0.9);
+}
+
+.wrapper .twitter:hover span,
+.wrapper .twitter:hover .tooltip {
+    background: rgba(24, 6, 143, 0.9);
+}
+    </style>
+</head>
+<body>
+    <footer class="wrapper">
+        <div class="icons facebook">
+            <div class="tooltip">
+                facebook
+            </div>
+            <span>
+                <i class='bx bxl-facebook-square'></i>
+            </span>
+        </div>
+        <div class="icons instagram">
+            <div class="tooltip">
+                instagram
+            </div>
+            <span>
+                <i class='bx bxl-instagram-alt' ></i>
+            </span>
+        </div>
+        <div class="icons whatsapp">
+            <div class="tooltip">
+                whatsapp
+            </div>
+            <span>
+                <i class='bx bxl-whatsapp-square' ></i>
+            </span>
+        </div>
+        <div class="icons youtube">
+            <div class="tooltip">
+                youtube
+            </div>
+            <span>
+                <i class='bx bxl-youtube' ></i>
+            </span>
+        </div>
+        <div class="icons twitter">
+            <div class="tooltip">
+                twitter
+            </div>
+            <span>
+                <i class='bx bxl-twitter' ></i>
+            </span>
+        </div>
+    </footer>
+</body>
+</html>
